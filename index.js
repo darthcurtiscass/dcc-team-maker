@@ -8,42 +8,104 @@ const questions = [
     //create array of question objects to give terminal prompts to answer.
     //one to obtain the type of employee
       {
-        type: 'list',
+        type: 'rawlist',
         message: 'What type of employee would you like to add to your team?',
         name: 'position',
         choices: ['Manager','Engineer','Intern', "I don't want to add more team members"]
       },
       {
+        when: (answers) => answers.position === 'Manager',
         type: 'input',
-        message: "What is your employee's name?",
+        message: "What is the Manager's name?",
         name: "name",
       },
       {
+        when: (answers) => answers.position === 'Manager',
         type: 'input',
-        message: "What is your employee's id number?",
+        message: "What is the Manager's id?",
         name: "id",
       },
       {
+        when: (answers) => answers.position === 'Manager',
         type: 'input',
-        message: "What is your employee's office number?",
+        message: "What is the Manager's email?",
+        name: "email",
+      },
+      {
+        when: (answers) => answers.position === 'Manager',
+        type: 'input',
+        message: "What is the Manager's office number?",
         name: "officeNumber",
       },
       {
+        when: (answers) => answers.officeNumber === ,
+        type: 'rawlist',
+        message: 'What type of employee would you like to add to your team?',
+        name: 'position',
+        choices: ['Manager','Engineer','Intern', "I don't want to add more team members"]
+      },
+      {
+        when: (answers) => answers.position === 'Engineer',
         type: 'input',
-        message: "What is your employee's gitHub username?",
+        message: "What is the Engineer's name?",
+        name: "name",
+      },
+      {
+        when: (answers) => answers.position === 'Engineer',
+        type: 'input',
+        message: "What is the Engineer's id number?",
+        name: "id",
+      },
+      {
+        when: (answers) => answers.position === 'Engineer',
+        type: 'input',
+        message: "What is the Engineer's email?",
+        name: "email"
+      },
+      {
+        when: (answers) => answers.position === 'Engineer',
+        type: 'input',
+        message: "What is the Engineer's gitHub username?",
         name: "gitHub"
       },
       {
+        when: (answers) => answers.position === 'Engineer',
+        type: 'rawlist',
+        message: 'What type of employee would you like to add to your team?',
+        name: 'position',
+        choices: ['Manager','Engineer','Intern', "I don't want to add more team members"]
+      },
+      {
+        when: (answers) => answers.position === 'Intern',
         type: 'input',
-        message: "What is your employee's email?",
-        name: "email"
-      }
-    
-    
-    //one to obtain their name.
-    //one to obtain their email.
-    //one to obtain their ID.
-    //one to obtain their office number.
+        message: "What is the Intern's name?",
+        name: "name",
+      },
+      {
+        when: (answers) => answers.position === 'Intern',
+        type: 'input',
+        message: "What is the Intern's id?",
+        name: "id",
+      },
+      {
+        when: (answers) => answers.position === 'Intern',
+        type: 'input',
+        message: "What is the Intern's email?",
+        name: "email",
+      },
+      {
+        when: (answers) => answers.position === 'Intern',
+        type: 'input',
+        message: "Where does the Intern's attend school?",
+        name: "school",
+      },
+      {
+        when: (answers) => answers.position === 'Intern',
+        type: 'rawlist',
+        message: 'What type of employee would you like to add to your team?',
+        name: 'position',
+        choices: ['Manager','Engineer','Intern', "I don't want to add more team members"]
+      },
 ]
 
 // const managerQuestions = () => {
