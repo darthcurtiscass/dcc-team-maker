@@ -4,6 +4,9 @@ addGitHub = () => {}
 addOfficeNumber = () => {}
 addName = () => {}
 
+
+addEngineer = () => {}
+
 //write function to receive data from terminal and write to HTML IF choice is Engineer.
 addEmployee = (data) => {
     if(data.position === 'Engineer') {

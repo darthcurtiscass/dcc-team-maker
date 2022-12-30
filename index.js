@@ -3,6 +3,10 @@ const fs = require('fs')
 const inquirer = require('inquirer');
 const generateHTML = require('./utils/generateHTML.js')
 
+const employees = []
+//Separate questions into separate arrays. One for engineer, one for manager, and so on...
+//Add question array to ask what type of employee they'd like to add.
+
 const questions = [
     //create a list options and main menu with options for types of employees and an option to deny the option.
     //create array of question objects to give terminal prompts to answer.
@@ -38,7 +42,7 @@ const questions = [
         name: "officeNumber",
       },
       {
-        when: (answers) => answers.officeNumber === ,
+        when: true,
         type: 'rawlist',
         message: 'What type of employee would you like to add to your team?',
         name: 'position',
@@ -120,6 +124,7 @@ const questions = [
 //     }
 // }
 
+
 function writeHTML() {
     inquirer
         .prompt(questions)
@@ -130,6 +135,16 @@ function writeHTML() {
         })
 }
 
+function init() {
+  inquirer
+    .prompt(ManagerQuestions)
+
+    .then((data)) => {
+      //push answers from question array to a new array
+      //create new Manager with answers from questions.
+    }
+}
 
 writeHTML();
 
+const Manager = new Manager(data.name, data.officeNumber)
