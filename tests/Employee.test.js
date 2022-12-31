@@ -1,4 +1,4 @@
-const Employee = require('./lib/Employee.class.js');
+const Employee = require('../lib/Employee.class');
 
 
 describe('Employee', () => {
@@ -12,20 +12,27 @@ describe('Employee', () => {
         });
         it("Should throw an error if provided no arguments", () => {
             const na = () => new Employee();
+            const err = new Error ("No arguments provided")
+      
+            expect(na).toThrow(err);
+        });
+        it("Should throw an error if not provided with a name", () => {
+            const na = () => new Employee("", "8", 'tom@tom.com');
+            const err = new Error("Required argument: 'name' not provided");
       
             expect(na).toThrow(err);
         });
         it("Should throw an error if not provided with an id", () => {
             const na = () => new Employee("Tom", "", 'tom@tom.com');
-            const err = new Error("Required parameter: 'id', not provided");
+            const err = new Error("Required argument: 'id' not provided");
       
-            expect(na).toThrowError(err);
+            expect(na).toThrow(err);
         });
-        it("Should throw and error if not provided with an email", () => {
+        it("Should throw an error if not provided with an email", () => {
             const na = () => new Employee("Tom", 8, "");
-            const err = new Error("Required parameter: 'email', not provided")
+            const err = new Error("Required argument: 'email' not provided")
 
-            expect(na).toThrow(err)
+            expect(na).toThrow(err);
         })
     })
 })

@@ -12,6 +12,10 @@ const employees = []
 //Separate questions into separate arrays. One for engineer, one for manager, and so on...
 //Add question array to ask what type of employee they'd like to add.
 
+const employeeType = [
+
+]
+
 const managerQuestions = [
   {
     type: 'input',
@@ -83,8 +87,7 @@ const internQuestions = [
   },
 ]
 
-const employeeType = [
-]
+
 
 
 // function writeHTML() {
@@ -97,18 +100,30 @@ const employeeType = [
         
 // }
 
-function init() {
-  inquirer
-    .prompt(managerQuestions)
 
-    .then((data) => {
-      const banana = new Manager(data.name, data.id, data.email, data.officeNumber);
-      console.log(banana);
-      //push answers from question array to employee array
-      //create new Manager with answers from questions.
-    })
+function chooseEmployee() {
+  inquirer
+  .prompt(employeeType)
+
+  .then((data) => {
+    if(data.choice === 'Manager') {
+      addManager()
+    }
+
+  })
 }
-init();
+
+function addManager() {
+  inquirer
+  .prompt(managerQuestions)
+
+  .then((data) => {
+    const manager = new Manager(data.name, data.id, data.email, data.officeNumber);
+      console.log(manager);
+  })
+}
+
+addManager();
 // writeHTML();
 
 // when: (answers) => answers.position === 'Engineer',

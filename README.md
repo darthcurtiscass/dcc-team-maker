@@ -10,9 +10,9 @@ Node application used to build a webpage with client side data.
 
 Questions:
 
-How do I get the program to select which array of questions should be shown?
+<!-- How do I get the program to select which array of questions should be shown?
 --Example: If the user wants to create info for ann Engineer, how do I tell the program to give the user the question array for the 
-Engineer specific questions.
+Engineer specific questions. -->
 
 Do I need to use Mock to test?
 How do I use npm test?
