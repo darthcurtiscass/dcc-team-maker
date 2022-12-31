@@ -47,10 +47,6 @@ addEmployee = (data) => {
 //write function to receive data from terminal and write to HTML IF choice is Intern.
 //write fucntion to receive data from terminal and write to HTML IF choice is Manager.
 
-// manager = () => {
-    
-// }
-
 generateHTML = (data) => {
     return `
     <!doctype html>
