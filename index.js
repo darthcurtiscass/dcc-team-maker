@@ -3,6 +3,11 @@ const fs = require('fs')
 const inquirer = require('inquirer');
 const generateHTML = require('./utils/generateHTML.js');
 
+const Employee = require('./lib/Employee.class.js');
+const Manager = require('./lib/Manager.subclass.js');
+const Engineer = require('./lib/Engineer.subclass');
+const Intern = require('./lib/Intern.subclass')
+
 const employees = []
 //Separate questions into separate arrays. One for engineer, one for manager, and so on...
 //Add question array to ask what type of employee they'd like to add.
@@ -32,25 +37,21 @@ const managerQuestions = [
 
 const engineerQuestions = [
   {
-    when: (answers) => answers.position === 'Engineer',
     type: 'input',
     message: "What is the Engineer's name?",
     name: "name",
   },
   {
-    when: (answers) => answers.position === 'Engineer',
     type: 'input',
     message: "What is the Engineer's id number?",
     name: "id",
   },
   {
-    when: (answers) => answers.position === 'Engineer',
     type: 'input',
     message: "What is the Engineer's email?",
     name: "email"
   },
   {
-    when: (answers) => answers.position === 'Engineer',
     type: 'input',
     message: "What is the Engineer's gitHub username?",
     name: "gitHub"
@@ -82,27 +83,32 @@ const internQuestions = [
   },
 ]
 
+const employeeType = [
+]
 
-function writeHTML() {
-    inquirer
-        .prompt(questions)
 
-        .then((data) => {
-            fs.writeFile("index.HTML", generateHTML(data), (err) =>
-      err ? console.log(err) : console.log('HTML created!'));
-        })
-        const Manager = new Manager(data.name, data.officeNumber)
-}
+// function writeHTML() {
+//     inquirer
+//         .prompt(questions)
+
+//         .then((data) => {
+//             fs.writeFile("index.HTML", generateHTML(data), (err) => err ? console.log(err) : console.log('HTML created!'));
+//         })
+        
+// }
 
 function init() {
   inquirer
     .prompt(managerQuestions)
 
-    .then((data)) => {
+    .then((data) => {
+      const banana = new Manager(data.name, data.id, data.email, data.officeNumber);
+      console.log(banana);
       //push answers from question array to employee array
       //create new Manager with answers from questions.
-    }
+    })
 }
+init();
+// writeHTML();
 
-writeHTML();
-
+// when: (answers) => answers.position === 'Engineer',
