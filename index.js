@@ -107,6 +107,7 @@ function chooseEmployee() {
       addIntern()
     }
     if(data.choice === 'No thank you'){
+      noThankYou()
     }
   })
 }
@@ -117,7 +118,6 @@ function addManager() {
 
   .then((data) => {
     const manager = new Manager(data.name, data.id, data.email, data.officeNumber);
-      console.log(manager);
       employees.push(manager);
       chooseEmployee();
   })
@@ -144,8 +144,11 @@ function addIntern() {
     console.log(intern);
     employees.push(intern);
     chooseEmployee();
-    
   })
+}
+
+function noThankYou() {
+  fs.writeFile("index.HTML", generateHTML(employees), (err) => err ? console.log(err) : console.log('HTML created!'))
 }
 
 chooseEmployee();
