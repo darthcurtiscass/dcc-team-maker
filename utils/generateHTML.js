@@ -1,12 +1,5 @@
 // write function to generate HTML
 
-addEngineer = (data) => {
-
-}
-
-//write function to receive data from terminal and write to HTML IF choice is Engineer.
-//write function to receive data from terminal and write to HTML IF choice is Intern.
-//write fucntion to receive data from terminal and write to HTML IF choice is Manager.
 addEmployee = (data) => {
     if(data.position === 'Engineer') {
         console.log('working')

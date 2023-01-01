@@ -1,6 +1,5 @@
 const Employee = require('../lib/Employee.class');
 
-
 describe('Employee', () => {
     describe('Initialization', () => {
         it("Should create an object with Employee's name, id, and email if provided valid arguments", () => {

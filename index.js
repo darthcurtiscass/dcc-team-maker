@@ -3,19 +3,26 @@ const fs = require('fs')
 const inquirer = require('inquirer');
 const generateHTML = require('./utils/generateHTML.js');
 
-const Employee = require('./lib/Employee.class.js');
-const Manager = require('./lib/Manager.subclass.js');
+const Employee = require('./lib/Employee.class');
+const Manager = require('./lib/Manager.subclass');
 const Engineer = require('./lib/Engineer.subclass');
-const Intern = require('./lib/Intern.subclass')
+const Intern = require('./lib/Intern.subclass');
+const { run } = require('jest');
 
+// empty array to recieve client entered data which will be pushed into generated HTML document.
 const employees = []
-//Separate questions into separate arrays. One for engineer, one for manager, and so on...
-//Add question array to ask what type of employee they'd like to add.
 
+//question array to ask what type of employee they'd like to add.
 const employeeType = [
-
+  {
+    type: 'list',
+    message: "What type of employee would you like to add?",
+    name: "choice",
+    choices: ["Manager", "Engineer", "Intern", "No thank you"],
+  }
 ]
 
+//question array to ask
 const managerQuestions = [
   {
     type: 'input',
@@ -64,13 +71,11 @@ const engineerQuestions = [
 
 const internQuestions = [
   {
-    when: (answers) => answers.position === 'Intern',
     type: 'input',
     message: "What is the Intern's name?",
     name: "name",
   },
   {
-    when: (answers) => answers.position === 'Intern',
     type: 'input',
     message: "What is the Intern's id?",
     name: "id",
@@ -82,24 +87,10 @@ const internQuestions = [
   },
   {
     type: 'input',
-    message: "Where does the Intern's attend school?",
+    message: "Where does the Intern attend school?",
     name: "school",
   },
 ]
-
-
-
-
-// function writeHTML() {
-//     inquirer
-//         .prompt(questions)
-
-//         .then((data) => {
-//             fs.writeFile("index.HTML", generateHTML(data), (err) => err ? console.log(err) : console.log('HTML created!'));
-//         })
-        
-// }
-
 
 function chooseEmployee() {
   inquirer
@@ -109,7 +100,14 @@ function chooseEmployee() {
     if(data.choice === 'Manager') {
       addManager()
     }
-
+    if(data.choice === 'Engineer') {
+      addEngineer()
+    }
+    if(data.choice === 'Intern') {
+      addIntern()
+    }
+    if(data.choice === 'No thank you'){
+    }
   })
 }
 
@@ -120,10 +118,48 @@ function addManager() {
   .then((data) => {
     const manager = new Manager(data.name, data.id, data.email, data.officeNumber);
       console.log(manager);
+      employees.push(manager);
+      chooseEmployee();
   })
 }
 
-addManager();
+function addEngineer() {
+  inquirer
+  .prompt(engineerQuestions)
+
+  .then((data) => {
+    const engineer = new Engineer(data.name, data.id, data.email, data.github);
+      console.log(engineer);
+      employees.push(engineer);
+      chooseEmployee();
+  })
+}
+
+function addIntern() {
+  inquirer
+  .prompt(internQuestions)
+
+  .then((data) => {
+    const intern = new Intern(data.name, data.id, data.email, data.school)
+    console.log(intern);
+    employees.push(intern);
+    chooseEmployee();
+    
+  })
+}
+
+chooseEmployee();
+
+
+// function writeHTML() {
+//     inquirer
+//         .prompt(employees)
+
+//         .then((data) => {
+//             fs.writeFile("index.HTML", generateHTML(data), (err) => err ? console.log(err) : console.log('HTML created!'));
+//         })
+        
+// }
 // writeHTML();
 
 // when: (answers) => answers.position === 'Engineer',
