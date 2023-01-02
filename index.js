@@ -9,7 +9,7 @@ const Engineer = require('./lib/Engineer.subclass');
 const Intern = require('./lib/Intern.subclass');
 const { run } = require('jest');
 
-// empty array to recieve client entered data which will be pushed into generated HTML document.
+// empty array to recieve client entered data which will be pushed into generated HTML document through the writeHTML function.
 const employees = []
 
 //question array to ask what type of employee they'd like to add.
@@ -22,7 +22,7 @@ const employeeType = [
   }
 ]
 
-//question array to ask
+//question array to ask questions specific to the Manager employee type.
 const managerQuestions = [
   {
     type: 'input',
@@ -45,7 +45,7 @@ const managerQuestions = [
     name: "officeNumber",
   },
 ]
-
+//question array to ask questions specific to the Engineer employee type.
 const engineerQuestions = [
   {
     type: 'input',
@@ -64,11 +64,11 @@ const engineerQuestions = [
   },
   {
     type: 'input',
-    message: "What is the Engineer's gitHub username?",
-    name: "gitHub"
+    message: "What is the Engineer's github username?",
+    name: "github"
   },
 ]
-
+//question array to ask questions specific to the Intern employee type.
 const internQuestions = [
   {
     type: 'input',
@@ -91,7 +91,7 @@ const internQuestions = [
     name: "school",
   },
 ]
-
+// Interprets which type of employee the client would like to enter and sends them questions from that chosen array.
 function chooseEmployee() {
   inquirer
   .prompt(employeeType)
@@ -111,7 +111,7 @@ function chooseEmployee() {
     }
   })
 }
-
+// Prompts user for questions in the managerQuestions array and sends the answers to the employees array.
 function addManager() {
   inquirer
   .prompt(managerQuestions)
@@ -122,7 +122,7 @@ function addManager() {
       chooseEmployee();
   })
 }
-
+//
 function addEngineer() {
   inquirer
   .prompt(engineerQuestions)
