@@ -122,7 +122,7 @@ function addManager() {
       chooseEmployee();
   })
 }
-//
+// Prompts user for questions in the engineerQuestions array and sends the answers to the employees array.
 function addEngineer() {
   inquirer
   .prompt(engineerQuestions)
@@ -134,7 +134,7 @@ function addEngineer() {
       chooseEmployee();
   })
 }
-
+// Prompts user for questions in the InternQuestions array and sends the answers to the employees array.
 function addIntern() {
   inquirer
   .prompt(internQuestions)
@@ -146,23 +146,9 @@ function addIntern() {
     chooseEmployee();
   })
 }
-
+// Sends client side data inputs to a written file caleed index.HTML
 function noThankYou() {
-  fs.writeFile("index.HTML", generateHTML(employees), (err) => err ? console.log(err) : console.log('HTML created!'))
+  fs.writeFile("index.html", generateHTML(employees), (err) => err ? console.log(err) : console.log('HTML created!'))
 }
 
 chooseEmployee();
-
-
-// function writeHTML() {
-//     inquirer
-//         .prompt(employees)
-
-//         .then((data) => {
-//             fs.writeFile("index.HTML", generateHTML(data), (err) => err ? console.log(err) : console.log('HTML created!'));
-//         })
-        
-// }
-// writeHTML();
-
-// when: (answers) => answers.position === 'Engineer',

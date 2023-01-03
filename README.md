@@ -1,18 +1,37 @@
-# dcc-team-maker
-Node application used to build a webpage with client side data.
+# Team Maker
 
-1. Develop tests for classes.
-2. Develop classes and export them.
-3. Import Classes and subclasses file into index, where you'll create a new Object.
-4. Create new arrays.
-5. Push data/newEmployee from those arrays into a new array.
-6. Generate HTML with array of objects created by with classes and subclasses.
+## Table of Contents: 
+[Description](#description)
 
-Questions:
+[Installation](#installation)
 
-<!-- How do I get the program to select which array of questions should be shown?
---Example: If the user wants to create info for ann Engineer, how do I tell the program to give the user the question array for the 
-Engineer specific questions. -->
+[Usage](#usage)
 
-Do I need to use Mock to test?
-How do I use npm test?
+[Contributions](#contributions)
+
+[License](#license)
+
+[Questions](#questions)
+
+## Description: 
+Application that consists of question arrays which prompt the user for data specific to the employee type that thry select. The data is interpreted and compiled into a minimally stylized, but easy to read webpage.
+
+## Installation: 
+NA
+
+## Usage: 
+This application can be used to create a webpage that displays information about a team of employees with options for three job titles: Manager, Engineer, and Intern. 
+
+## Contributions: 
+Joem Cassusi, Tom Ford, Julio Valdez
+
+## License: 
+
+
+
+
+## Questions: 
+Github Username: https://github.com/darthcurtiscass
+
+
+Email: dylancurtiscassagnol@icloud.com

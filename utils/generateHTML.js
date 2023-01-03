@@ -8,7 +8,7 @@ generateCard = (data) => {
   <div class="card-body">
     <h5 class="card-title">${data.name}</h5>
     <h6 class="card-subtitle mb-2 text-muted">${data.getRole()}</h6>
-    <p class="card-text">${data.id}</p>
+    <p class="card-text">Employee ID: ${data.id}</p>
     <a href="mailto:${data.email}" class="card-link">${data.email}</a>
     ${generateUnique(data)}
   </div>
@@ -19,15 +19,15 @@ generateCard = (data) => {
 generateUnique = (data) => {
   if(data.getRole() == "Manager") {
     return`
-    <h6 class="card-subtitle mb-2 text-muted">${data.officeNumber}</h6>`
+    <h6 class="card-subtitle mb-2 text-muted">Office Number: ${data.officeNumber}</h6>`
   }
   if(data.getRole() == "Engineer") {
     return `
-    <a href="https://github.com/${data.github}" class="card-link">${data.github}</a>`
+    <a href="https://github.com/${data.github}" class="card-link">Github account: ${data.github}</a>`
   }
   if(data.getRole() == "Intern") {
     return `
-    <h6 class="card-subtitle mb-2 text-muted">${data.school}</h6>`
+    <h6 class="card-subtitle mb-2 text-muted">Education: ${data.school}</h6>`
   }
 }
 
@@ -41,7 +41,7 @@ generateHTML = (data) => {
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>HTML generator</title>
+    <title>Team Maker</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   </head>
 <body>

@@ -2,7 +2,7 @@ const Engineer = require('../lib/Engineer.subclass');
 
 describe('Engineer', () => {
     describe('Initialization', () => {
-        it("Should create an object with Engineer's name, id, and email if provided valid arguments", () => {
+        it("Should create an object with Engineer's name, id, email, and github ID if provided valid arguments", () => {
             const engineer = new Engineer('Tom', 8, 'tom@tom.com', "tomcat123");
 
             expect(engineer.name).toEqual("Tom");
